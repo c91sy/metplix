@@ -5,7 +5,7 @@ include("metplix-apps:app-batch")
 
 include("metplix-adapters:adapter-http")
 include("metplix-adapters:adapter-persistence")
-include("metplix-adapters:adapter-mysql")
+include("metplix-adapters:adapter-redis")
 
 include("metplix-commons")
 
