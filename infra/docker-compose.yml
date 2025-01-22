@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: metplix-mysql
+    ports:
+      - '4001:3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: metplixdb
+      TZ: Asia/Seoul
+    volumes:
+      - ./db/mysql/data:/var/lib/mysql
+      - ./db/mysql/init:/docker-entrypoint-initdb.d
+    restart: always
+    #platform: linux/x86_64
+    #도커가 자동으로 플랫폼을 감지하므로 생략 (맥이 아닌 윈도우에서는 경고가 발생)
+
+  redis:
+    image: redis:alpine
+    container_name: metplix-redis
+    hostname: metplix-redis
+    ports:
+        - 6379:6379
+    command: redis-server
+    restart: always
+
+  #한 눈에 컨테이너와 호스트명을 파악하기 쉽고 특히 다양한 컨테이너를 운영할 때 혼동을 줄일 수 있다
+  #네트워킹 및 클러스터링: Redis는 분산된 환경에서 여러 인스턴스 간의 통신이 중요.
+  #그래서 호스트명을 명시적으로 설정하면 더 쉽게 구성하고 관리
