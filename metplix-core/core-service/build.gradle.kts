@@ -2,7 +2,7 @@ dependencies {
     implementation(project(":metplix-core:core-usecase"))
     implementation(project(":metplix-core:core-port"))
 
-    runtimeOnly(project(":metplix-adapters:adapter-http"))
+    implementation(project(":metplix-adapters:adapter-http"))
 
     implementation("org.springframework:spring-context")
 }
@@ -11,8 +11,11 @@ dependencies {
 SamplePort라고하는 인터페이스를 바로보게 만들었다 */
 
 /* SamplePort 인터페이스를 통해 adapters-http 모듈에 구현된 SampleHttpAdapter와 통신
-   runtimeOnly는 해당 의존성을 컴파일 시 포함하지 않고, 애플리케이션 실행 시 주입하여 사용함
-   이로써 서비스 모듈은 HTTP 구현체와 직접적으로 강한 의존성을 갖지 않고 느슨한 결합 상태를 유지 */
+//runtimeOnly(project(":metplix-adapters:adapter-http"))
+runtimeOnly는 모듈을 처음 만들거나 실험할 때, 해당 모듈이 실제로 애플리케이션에서 어떻게 동작하는지를 확인하기 위한 용도로 사용
+샘플에서 runtimeOnly를 사용하는 이유는 서비스 모듈(core-service)이 HTTP 구현체(adapter-http)와 강한 결합을 피하기 위해
+서비스 모듈이 특정 구현체(SampleHttpAdapter)를 직접 참조하지 않고 인터페이스(SamplePort)만 바라보도록 설계
+   */
 
 // 서비스 모듈이 비즈니스 로직에만 집중하고, HTTP 요청/응답 처리는 아답터에서 수행한다면, spring-context를 유지하는 것이 더 적합.
 // 이 서비스 모듈은 비즈니스 로직에만 집중하고, HTTP 요청/응답 처리는 아답터모듈(adapters-http)에서 수행

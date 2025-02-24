@@ -1,0 +1,17 @@
+tmdb:
+  auth:
+    api-key: 224210e519f0d4072d503146c89dd43e
+    access-token: eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMjQyMTBlNTE5ZjBkNDA3MmQ1MDMxNDZjODlkZDQzZSIsIm5iZiI6MTczOTc4NTQzMC4yMzMsInN1YiI6IjY3YjMwNGQ1NWFjYTVhNzFkMjlmZDNiZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.n3iCUrSN_hYrQ4DpgiykklPdrcLob18RqFI-PJeXbMo
+
+  api:
+    movie-lists:
+      now-playing: https://api.themoviedb.org/3/movie/now_playing
+      popular: https://api.themoviedb.org/3/movie/popular
+      top-rated: https://api.themoviedb.org/3/movie/top_rated
+      upcoming: https://api.themoviedb.org/3/movie/upcoming
+
+
+  # 상영중인 영화목록
+  # 인기순
+  # 최고등급
+  # 개봉예정인 영화목록
