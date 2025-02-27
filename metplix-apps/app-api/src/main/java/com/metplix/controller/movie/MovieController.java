@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class MovieController {
     private final FetchMovieUseCase fetchMovieUseCase;
 
-    @GetMapping("/api/vi/movie/client/{page}")
+    @GetMapping("/api/v1/movie/client/{page}")
     public String fetchMovieClient(@PathVariable int page) {
         fetchMovieUseCase.fetchFromClient(page);
         return "";

@@ -34,3 +34,8 @@ public class MovieService implements FetchMovieUseCase {
 //유스케이스 코어 모듈에 있는 FatchMovieUseCase
 // 내부 비즈니스 로직과 UI 응답 형식을 분리하여 유지보수를 쉽게 하기 위해
 // 여러 데이터를 조합하여 최적화된 응답을 생성할 수 있도록 하기 위해
+
+/*
+TmdbMoviePort 인터페이스는 MovieService 클래스에서 주입받아 사용하는 의존성일 뿐,
+클래스 옆에 명시적으로 implements 키워드를 사용하여 구현할 필요는 없다
+*/
