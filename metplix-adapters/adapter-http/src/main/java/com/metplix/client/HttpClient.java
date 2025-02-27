@@ -11,11 +11,11 @@ import org.springframework.web.client.RestTemplate;
 import java.util.Map;
 
 @Component
-@RequiredArgsConstructor
+@RequiredArgsConstructor //
 public class HttpClient {
     private final RestTemplate restTemplate;
 
-    public String rquest(String uri, HttpMethod method, HttpHeaders headers, Map<String, Object> params) {
+    public String request(String uri, HttpMethod method, HttpHeaders headers, Map<String, Object> params) {
         return restTemplate.exchange(
                 uri,
                 method,

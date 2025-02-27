@@ -3,6 +3,7 @@ package com.metplix.tmdb;
 import com.metplix.client.TmdbHttpClient;
 import com.metplix.movie.TmdbMoviePort;
 import com.metplix.movie.TmdbPageableMovies;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
@@ -11,16 +12,12 @@ import org.springframework.util.CollectionUtils;
 import java.util.Map;
 
 @Component
+@RequiredArgsConstructor
 public class TmdbMovieListHttpClient implements TmdbMoviePort {
 
-    private final String nowPlayingUrl;
-
+    @Value("${tmdb.api.movie-lists.now-playing}")
+    private String nowPlayingUrl;
     private final TmdbHttpClient tmdbHttpClient;
-
-    public TmdbMovieListHttpClient(@Value("${tmdb.api.movie-lists.now-playing}") String nowPlayingUrl, TmdbHttpClient tmdbHttpClient) {
-        this.nowPlayingUrl = nowPlayingUrl;
-        this.tmdbHttpClient = tmdbHttpClient;
-    }
 
     @Override
     public TmdbPageableMovies fetchPageable(int page) {

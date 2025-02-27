@@ -22,13 +22,13 @@ public class TmdbHttpClient {
                           Map<String, Object> param){
         MultiValueMap<String, String> multiValueMap = new LinkedMultiValueMap<>();
         multiValueMap.add(HttpHeaders.ACCEPT,"application/json");
-        multiValueMap.add(HttpHeaders.AUTHORIZATION, "Bearer" + accessToken);
+        multiValueMap.add(HttpHeaders.AUTHORIZATION, "Bearer " + accessToken);
         multiValueMap.addAll(headers);
 
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.addAll(multiValueMap);
 
-        return  httpClient.rquest(uri, method, httpHeaders, param);
+        return httpClient.request(uri, method, httpHeaders, param);
     }
 }
 

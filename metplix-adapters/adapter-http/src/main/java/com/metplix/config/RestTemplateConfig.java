@@ -9,7 +9,11 @@ import org.springframework.web.client.RestTemplate;
 public class RestTemplateConfig {
     @Bean
     public RestTemplate restTemplate() {
+
         return new RestTemplateBuilder().build();
     }
 
 }
+
+
+//RestTemplate을 가져다 쓰기 위한 빈
