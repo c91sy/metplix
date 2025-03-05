@@ -1,6 +1,6 @@
 object Versions {
     // 코틀린 1.0 버전까진 소문자 만들 수 있었지만 2.0부터는 일반적 상수 규칙 처럼 대문자
-    const val SPRING_BOOT = "3.4.1"
+    const val SPRING_BOOT = "3.3.3"
     const val SPRING_DEPENDENCY_MANAGEMENT_PLUGIN = "1.1.7"
     const val LOMBOK_PLUGIN = "6.6.1"
     const val INTEGRATION_TEST_PLUGIN = "1.4.0"
