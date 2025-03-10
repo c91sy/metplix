@@ -1,0 +1,46 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies Node.js 패키지
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing 테스트 커버리지 리포트
+/coverage
+
+# next.js 빌드 폴더
+/.next/
+/out/
+
+# production 프로덕션
+/build
+
+# misc 기타
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed) 환경 변수 파일
+.env*
+
+# 예제 파일은 유지
+!.env.example
+# vercel 프론트엔드 애플리케이션을 쉽게 배포할 수 있도록 도와주는 클라우드 플랫폼
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# ESLint 캐시 파일
+.eslintcache
