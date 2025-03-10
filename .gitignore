@@ -3,12 +3,19 @@
 
 ### IntelliJ IDEA ###
 .idea/
-# infra 폴더 내의 db 폴더 제외
+# infra 폴더(모듈) 내의 db 폴더 제외
 infra/db/
 
-# infra 폴더 내의 Docker 관련 YAML 파일(.yml) 제외
+# infra 폴더(모듈) 내의 Docker 관련 YAML 파일(.yml) 제외
 infra/*.yml
 infra/*.yaml
+
+# adapter 모듈 내 yml 파일 제외
+metplix-adapters/adapter-http/src/main/resources/adapter-http-property.yml
+
+# apps 모듈 내 yml 파일 제외
+metplix-apps/app-api/src/main/resources/application.yml
+
 .gradle
 build/
 !gradle/wrapper/gradle-wrapper.jar
