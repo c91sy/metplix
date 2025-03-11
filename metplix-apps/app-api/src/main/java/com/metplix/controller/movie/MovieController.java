@@ -1,6 +1,7 @@
 package com.metplix.controller.movie;
 
 import com.metplix.movie.FetchMovieUseCase;
+import com.metplix.movie.response.PageableMoviesResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,7 +14,7 @@ public class MovieController {
 
     @GetMapping("/api/v1/movie/client/{page}")
     public String fetchMovieClient(@PathVariable int page) {
-        fetchMovieUseCase.fetchFromClient(page);
+        PageableMoviesResponse pageableMoviesResponse = fetchMovieUseCase.fetchFromClient(page);
         return "";
     }
 }
