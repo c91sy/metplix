@@ -3,6 +3,7 @@ dependencies {
     implementation(project(":metplix-core:core-port"))
 
     implementation(project(":metplix-adapters:adapter-http"))
+    implementation(project(":metplix-adapters:adapter-persistence"))
 
     implementation("org.springframework:spring-context")
 }

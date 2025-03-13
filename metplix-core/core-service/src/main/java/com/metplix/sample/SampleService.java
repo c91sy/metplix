@@ -9,10 +9,13 @@ import org.springframework.stereotype.Service;
 public class SampleService implements SearchSampleUseCase{
 
     private final SamplePort samplePort; // SamplePort를 통해 아답터와 통신
+    //private final SamplePersistencePort samplePersistencePort;
+    //SamplePersistencePort는 현재 포트폴리오에 포함되지 않는 엔티티와 리포지토리 코드로 인해 주석 처리했습니다.
 
     @Override
     public SampleResponse getSample() {
         SamplePortResponse sample = samplePort.getSample();
+        //String sampleName = samplePersistencePort.getSampleName("1");
         return new SampleResponse(sample.getName());
     }
 }
