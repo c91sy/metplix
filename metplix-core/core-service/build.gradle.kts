@@ -6,6 +6,8 @@ dependencies {
     implementation(project(":metplix-adapters:adapter-persistence"))
 
     implementation("org.springframework:spring-context")
+    implementation("org.springframework.data:spring-data-commons")
+
 }
 
 /*샘플 포트로부터 데이터가 필요해서 샘플포트를 바라보게하는데 직접 구현체인클래스(SampleHttpAdapter)를 바로 바라보는게 아니라
@@ -23,3 +25,10 @@ runtimeOnly는 모듈을 처음 만들거나 실험할 때, 해당 모듈이 실
 
 //하지만 서비스 모듈에서 직접 컨트롤러를 작성하거나, 웹 요청 처리 로직이 추가될 계획이 (json처리) 있다면 spring-boot-starter-web로 전환해야 힘
 // HTTP 관련 클래스 사용 <@RestController, @RequestMapping, HttpServletRequest 등을 사용하는 경우.
+
+
+/*
+spring-data-commons는 Spring Data의 공통적인 기능과 유틸리티를 제공하는 라이브러리로,
+다양한 Spring Data 저장소 구현을 사용할 때 필요한 기본적인 지원을 제공
+라이브러리 추가 후 인터페이스 사용 가능 (인터페이스 메서드 생성 가능)
+*/
