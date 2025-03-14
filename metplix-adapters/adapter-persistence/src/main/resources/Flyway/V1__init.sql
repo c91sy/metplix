@@ -1,0 +1,9 @@
+DROP TABLE IF EXISTS `metplixdb`.`sample`;
+CREATE TABLE `metplixdb`.`sample`
+(
+    SAMPLE_ID     VARCHAR(255) NOT NULL,
+    SAMPLE_NAME   VARCHAR(50)  NOT NULL,
+    SAMPLE_DESC    VARCHAR(255) NOT NULL,
+
+    PRIMARY KEY (SAMPLE_ID)
+);
