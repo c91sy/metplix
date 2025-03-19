@@ -4,7 +4,7 @@ plugins {
     id("java")
 //버전 관리를 외부에서 관리하기 위해서 사용(모듈마다 서로다른 버전의 라이브러리를 사용할 경우 의존성 충돌이 발생), 하드코딩을 줄이기위해 사용
 //여러모듈 or 하위 플젝에서 일관된 버전을 쉽게 유지 (한 곳에서 버전 정보를 수정하면 모든 관련 프로젝트에 일관성 있게 반영)
-    /*	id("org.springframework.boot") version "3.4.1"
+    /*	id("org.springframework.boot") version "3.3.3"
         id("io.spring.dependency-management") version "1.1.7"*/
     id("org.springframework.boot") version Versions.SPRING_BOOT apply false
     id("io.spring.dependency-management") version Versions.SPRING_DEPENDENCY_MANAGEMENT_PLUGIN apply false
@@ -13,7 +13,6 @@ plugins {
     id("com.epages.restdocs-api-spec") version Versions.RESTDOCS_API_SPEC apply false
     id("org.asciidoctor.jvm.convert") version Versions.ASCIIDOCTOR_PLUGIN apply false
     id("com.linecorp.build-recipe-plugin") version Versions.LINE_RECIPE_PLUGIN
-
 }
 //Gradle 빌드 스크립트에서 사용되는 블록으로, 프로젝트의 모든 하위 모듈에 대해 공통 설정을 적용할 때 사용
 // 이 블록 내에서 정의된 설정은 해당 프로젝트와 그 하위 프로젝트들에 모두 적용
@@ -128,6 +127,7 @@ configureByLabels("boot") {
     }
 
     tasks.getByName<org.springframework.boot.gradle.tasks.bundling.BootJar>("bootJar") {
+        mainClass.set("com.metplix.MetplixApiApplication") // 명시적으로 main class 지정
         enabled = true
         archiveClassifier.set("boot")
     } // 부트는 해당 모듈을 어플리케이션으로 만들때 필요
@@ -158,8 +158,9 @@ configureByLabels("asciidoctor") {
 configureByLabels("restdocs") {
     apply(plugin = "com.epages.restdocs-api-spec")
 }
-//퍼시스턴트 레이아웃에서만 사용 할 수 있도록 분류
+//퍼시스턴스 레이아웃에서만 사용 할 수 있도록 분류
 configureByLabels("querydsl") {
+    // QueryDSL 의존성 추가
     the<io.spring.gradle.dependencymanagement.dsl.DependencyManagementExtension>().apply {
         imports {
             mavenBom("com.querydsl:querydsl-bom:${Versions.QUERYDSL}")
@@ -176,11 +177,13 @@ configureByLabels("querydsl") {
         val implementation by configurations
         val annotationProcessor by configurations
 
+        // QueryDSL 의존성
         implementation("com.querydsl:querydsl-jpa:${Versions.QUERYDSL}:jakarta")
         implementation("com.querydsl:querydsl-core:${Versions.QUERYDSL}")
 
+        // Annotation Processor 의존성
         annotationProcessor("com.querydsl:querydsl-apt:${Versions.QUERYDSL}:jakarta")
         annotationProcessor("jakarta.persistence:jakarta.persistence-api")
         annotationProcessor("jakarta.annotation:jakarta.annotation-api")
-    } //분리된 의존성
+    }
 }

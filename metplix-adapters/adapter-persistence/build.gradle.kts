@@ -8,7 +8,7 @@ dependencies {
     implementation("org.flywaydb:flyway-mysql")
 
     runtimeOnly("com.mysql:mysql-connector-j")
-   // runtimeOnly(project(":metplix-core:core-service"))
+    //runtimeOnly(project(":metplix-core:core-service"))
 }
 
 //MySQL(JPA) 관련 어노테이션(@Entity, @Transactional 등) JPA와 트랜잭션 관리가 필요
