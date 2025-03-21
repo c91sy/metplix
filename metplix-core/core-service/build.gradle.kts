@@ -4,6 +4,7 @@ dependencies {
 
     implementation(project(":metplix-adapters:adapter-http"))
     implementation(project(":metplix-adapters:adapter-persistence"))
+    implementation(project(":metplix-adapters:adapter-redis"))
 
     implementation("org.springframework:spring-context")
     implementation("org.springframework.data:spring-data-commons")
