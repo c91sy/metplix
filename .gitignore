@@ -28,6 +28,9 @@ metplix-adapters/adapter-persistence/src/main/java/com/metplix/repository/Sample
 # core-port 모듈 샘플 파일 제외
 metplix-core/core-port/src/main/java/com/metplix/sample/SamplePersistencePort.java
 
+# core-service 모듈 샘플 파일 제외
+metplix-core/core-service/src/main/java/com/metplix/sample/SampleService.java
+
 
 .gradle
 build/

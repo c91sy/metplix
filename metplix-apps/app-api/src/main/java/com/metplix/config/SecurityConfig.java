@@ -1,5 +1,6 @@
 package com.metplix.config;
 
+import com.metplix.security.MetplixUserDetailsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,12 +22,16 @@ import java.util.Collections;
 @EnableMethodSecurity //메서드 보안을 설정, 서비스나 비즈니스 로직 계층에서 메서드 수준에서의 인증 및 인가를 제어
 @RequiredArgsConstructor
 public class SecurityConfig {
+    private final MetplixUserDetailsService metplixUserDetailsService;
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.httpBasic(AbstractHttpConfigurer::disable);
         http.csrf(AbstractHttpConfigurer::disable);
         http.formLogin(AbstractHttpConfigurer::disable);
         http.cors(cors -> cors.configurationSource(corsConfigurationSource()));
+
+        http.userDetailsService(metplixUserDetailsService);
 
         http.authorizeHttpRequests(authorizeRequests ->
                 authorizeRequests.anyRequest().authenticated());  //요청에 대한 인가 설정
