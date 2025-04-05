@@ -1,6 +1,7 @@
 dependencies {
     implementation(project(":metplix-core:core-usecase"))
     implementation(project(":metplix-core:core-service"))
+    implementation(project(":metplix-commons"))
 
     implementation("org.springframework.boot:spring-boot-starter-web")
 

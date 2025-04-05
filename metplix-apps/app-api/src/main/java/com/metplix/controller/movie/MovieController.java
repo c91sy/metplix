@@ -1,5 +1,6 @@
 package com.metplix.controller.movie;
 
+import com.metplix.controller.MetplixApiResponse;
 import com.metplix.movie.FetchMovieUseCase;
 import com.metplix.movie.response.PageableMoviesResponse;
 import lombok.RequiredArgsConstructor;
@@ -13,9 +14,9 @@ public class MovieController {
     private final FetchMovieUseCase fetchMovieUseCase;
 
     @GetMapping("/api/v1/movie/client/{page}")
-    public String fetchMovieClient(@PathVariable int page) {
+    public MetplixApiResponse<PageableMoviesResponse> fetchMovieClient(@PathVariable int page) {
         PageableMoviesResponse pageableMoviesResponse = fetchMovieUseCase.fetchFromClient(page);
-        return "";
+        return MetplixApiResponse.ok(pageableMoviesResponse);
     }
 }
 

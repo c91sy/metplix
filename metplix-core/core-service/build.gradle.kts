@@ -1,6 +1,7 @@
 dependencies {
     implementation(project(":metplix-core:core-usecase"))
     implementation(project(":metplix-core:core-port"))
+    implementation(project(":metplix-commons"))
 
     implementation(project(":metplix-adapters:adapter-http"))
     implementation(project(":metplix-adapters:adapter-persistence"))
