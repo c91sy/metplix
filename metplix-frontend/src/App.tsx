@@ -61,7 +61,7 @@ function App() {
                       <Routes> {/* 메인 홈페이지, 로그인, 회원가입, 카카오로그인, 관리자 */}
                           <Route path="/" element={<Main/>}/>
                           <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn}/>}/>
-                          <Route path="/signup" element={<Signup/>}/>
+                          <Route path="/signup" element={<Signup setIsLoggedIn={setIsLoggedIn}/>}/>
                           <Route path="/login/oauth2/code/kakao" element={<KakaoAuthRedirect/>}/>
 
                           <Route path="/dashboard" element={
@@ -75,8 +75,7 @@ function App() {
               </div>
           </div>
       </Router>
-)
-;
+);
 }
 
 export default App;

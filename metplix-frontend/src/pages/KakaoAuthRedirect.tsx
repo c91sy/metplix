@@ -1,7 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-export default function KakaoAuthRedirect() {
-  return (
-    <div>KakaoAuthRedirect</div>
-  )
-}
+const KakaoAuthRedirect = () => {
+    return (
+        <div>
+            카카오로그인
+        </div>
+    );
+};
+
+export default KakaoAuthRedirect;

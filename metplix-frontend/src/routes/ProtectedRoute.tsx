@@ -17,3 +17,5 @@ const ProtectedRoute = ({children}: ProtectedRouteProps)=>{
 };
 
 export default ProtectedRoute;
+
+//로그인 안 된 사용자가 보호된 페이지 접근 시 자동 리디렉션
